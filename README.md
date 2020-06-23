@@ -7,4 +7,3 @@ A simple "Hello Blinky!" in Arduino Uno, based on a successful graphql query
 #### Hardware I used:
 - Arduino Uno
 - Simple LED pin
-- Can be tested out on online simulators like Tinkercad
