@@ -20,16 +20,22 @@ board.on("ready", () => {
   board.repl.inject({
     led
   })
-    client.query({
-      query: gql`
-      query someQuery{
-      . . .
-      . . .
-    }`,
-  }).then(res => {
-    console.log(res)
+  client.query({
+    query: gql`
+    query someQuery{
+    author(where: {name: {_eq: "Rowling"}}){
+      name
+          }
+  }`,
+}).then(res => {
+  console.log(res)
+  if(res.data.author.length > 0){
     led.blink(1000);
-  })
+  }
+  else{
+    led.blink(3000);
+  }
+})
 
 board.on("exit", () => {
   console.log("Exiting")
